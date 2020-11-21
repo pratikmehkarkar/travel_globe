@@ -1,11 +1,5 @@
 import 'package:flutter/material.dart';
 
-const List<String> context_menu_choice = <String>[
-  "Item 1",
-  "Item 2",
-  "Item 3"
-];
-
 class HomePage extends StatelessWidget
 {
   //The root of flutter application
@@ -41,14 +35,6 @@ class NaviHomeState extends State<NaviHome>
         //title: Text('Flutter Guide'),
         elevation: 0.0,
         backgroundColor: Colors.white,
-        /*leading: IconButton(
-            onPressed: ()
-            {
-              //navi click
-              NavigationDrawer();
-            },
-          icon: Icon(Icons.menu, color: Colors.black,),
-        ),*/
         iconTheme: new IconThemeData(color: Colors.black),
         title: Text("Travel-Globe", style: TextStyle(color: Colors.black),),
       ),

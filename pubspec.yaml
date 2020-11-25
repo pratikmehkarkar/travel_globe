@@ -30,6 +30,8 @@ dependencies:
   cupertino_icons: ^0.1.3
   flutter_colored_progress_indicators: ^1.2.0
   shared_preferences: ^0.5.4+6
+  carousel_slider: ^2.2.1
+  meet_network_image: ^0.1.2
 
 dev_dependencies:
   flutter_test:
@@ -49,6 +51,11 @@ flutter:
     - images/travel_logo.gif
     - images/logo.png
     - images/nav.jpg
+    - images/nyc.jpg
+    - images/sin.jpg
+    - images/paris.jpeg
+    - images/london.jpg
+    - images/tokiyo.jpeg
   fonts:
     - family: friday
       fonts:

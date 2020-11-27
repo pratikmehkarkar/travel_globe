@@ -32,6 +32,8 @@ dependencies:
   shared_preferences: ^0.5.4+6
   carousel_slider: ^2.2.1
   meet_network_image: ^0.1.2
+  firebase_auth: ^0.18.3+1
+  firebase_core: ^0.5.0
 
 dev_dependencies:
   flutter_test:
@@ -56,6 +58,7 @@ flutter:
     - images/paris.jpeg
     - images/london.jpg
     - images/tokiyo.jpeg
+    - images/dev.gif
   fonts:
     - family: friday
       fonts:

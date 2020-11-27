@@ -6,14 +6,16 @@ import 'package:final_project/navigation_screen/pack_bag.dart';
 import 'package:final_project/navigation_screen/travel_guide.dart';
 import 'package:final_project/ui_components/DetailsPage.dart';
 import 'package:final_project/ui_components/card_view.dart';
+import 'package:final_project/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-
+enum PageEnum {
+  firstPage,
+  secondPage,
+}
 const List<String> context_menu_choice = <String>[
-  "Item 1",
-  "Item 2",
-  "Item 3"
-];
+  "Item 1", "Item 2", "Item 3"];
 
 class HomePage extends StatelessWidget
 {
@@ -33,10 +35,13 @@ class HomePage extends StatelessWidget
 
 class NaviHome extends StatefulWidget
 {
+  String stringValue;
   NaviHomeState createState() => NaviHomeState();
+  NaviHome({this.stringValue});
 }
 class NaviHomeState extends State<NaviHome>
 {
+
   List<String> imagelist = [
     "images/nyc.jpg",
     "images/sin.jpg",
@@ -44,6 +49,44 @@ class NaviHomeState extends State<NaviHome>
     "images/london.jpg",
     "images/tokiyo.jpeg"
   ];
+  removeValues() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('first_time', true);
+    prefs.remove('stringvalue');
+  }
+  /*getStringValuesSF() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    stringValue = prefs.getString('stringvalue');
+    print(stringValue);
+    //return stringValue;
+  }*/
+  _onSelect(PageEnum value) {
+    switch (value) {
+      case PageEnum.firstPage:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => FirstPage()));
+        break;
+      case PageEnum.secondPage:
+        removeValues();
+        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => SecondPage()));
+        break;
+      default:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => SecondPage()));
+        break;
+    }
+  }
+  @override
+  void initState()
+  {
+    super.initState();
+    //getStringValuesSF();
+  }
 
   final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   @override
@@ -56,6 +99,21 @@ class NaviHomeState extends State<NaviHome>
       drawer: NavigationDrawer(),
       appBar: AppBar(
         //title: Text('Flutter Guide'),
+        actions: <Widget>[
+          PopupMenuButton(
+            onSelected: _onSelect,
+              itemBuilder: (context) => <PopupMenuEntry<PageEnum>>[
+                PopupMenuItem<PageEnum>(
+                  value: PageEnum.firstPage,
+                  child: Text("Developer Info"),
+                ),
+                PopupMenuItem<PageEnum>(
+                  value: PageEnum.secondPage,
+                  child: Text("Logout"),
+                ),
+              ],
+          )
+        ],
         elevation: 0.0,
         backgroundColor: Colors.white,
         iconTheme: new IconThemeData(color: Colors.black),
@@ -67,6 +125,7 @@ class NaviHomeState extends State<NaviHome>
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //getStringValuesSF(),
             Text("A Destination For The New Millennium", style:
             TextStyle(fontSize: 28.0, fontWeight: FontWeight.w800),),
             SizedBox(height: 5.0,),
@@ -127,6 +186,7 @@ class NaviHomeState extends State<NaviHome>
     );
   }
 }
+
 //navigation drawer class
 class NavigationDrawer extends StatelessWidget
 {
@@ -200,3 +260,51 @@ const MaterialColor primaryBlack = MaterialColor(
   },
 );
 const int _blackPrimaryValue = 0xFF7041EE;
+/*Widget my_simple_menu() {
+  return PopupMenuButton(onSelected: (value)
+  {
+    /*Fluttertoast.showToast(
+        msg: "You have selected " + value.toString(),
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );*/
+    /*if (value == 1)
+    {
+      print("1");
+      //Navigator.push(, MaterialPageRoute(builder: (context) => AboutUs()),);
+    }
+    else if (value == 2) {
+      print("2");
+    }
+    else
+      {
+        print("3");
+      }*/
+  },
+    itemBuilder: (BuildContext context)
+    {
+      var list = List<PopupMenuEntry<Object>>();
+      list.add(PopupMenuItem(
+          value: 1,
+          child: Row(
+            children: <Widget>[
+              Text('Developer Info')
+            ],)));
+      list.add(PopupMenuItem(
+          value: 2,
+          child: Row(
+            children: <Widget>[
+              Text('Privacy Policy')
+            ],)));
+      list.add(PopupMenuItem(
+          value: 3,
+          child: Row(
+            children: <Widget>[
+              Text('Logout')
+            ],)));
+      return list;
+    },);}*/

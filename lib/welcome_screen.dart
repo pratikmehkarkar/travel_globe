@@ -1,3 +1,4 @@
+import 'package:final_project/RegisterUser.dart';
 import 'package:final_project/SignInScreen.dart';
 import 'package:final_project/ui_components/my_button.dart';
 import 'package:flutter/material.dart';
@@ -52,11 +53,31 @@ class WelcomeScreenState extends State<WelcomeScreen>
               children: [
                 Padding(
                   padding: EdgeInsets.symmetric(horizontal: 35.0),
-                  child: CustomButton(
-                    label: 'Get Started',
-                    labelColour: Colors.white,
-                    backgroundColour: Color(0xFF7041EE),
-                    shadowColour: Color(0xff866DC9).withOpacity(0.16),
+                  child: GestureDetector(
+                    child: CustomButton(
+                      label: 'Register',
+                      labelColour: Colors.white,
+                      backgroundColour: Color(0xFF7041EE),
+                      shadowColour: Color(0xff866DC9).withOpacity(0.16),
+                    ),
+                    onTap: () {
+                      Navigator.of(context).pushReplacement(PageRouteBuilder(
+                          pageBuilder: (context, animation, anotherAnimation)
+                          {
+                            return RegisterUser();
+                          },
+                          transitionDuration: Duration(milliseconds: 2000),
+                          transitionsBuilder: (context, animation, anotherAnimation, child)
+                          {
+                            animation = CurvedAnimation(
+                                parent: animation, curve: curveList[4]);
+                            return ScaleTransition(
+                              scale: animation,
+                              child: child,
+                            );
+                          }
+                      ),);
+                    },
                   ),
                 ),
                 Padding(

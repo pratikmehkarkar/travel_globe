@@ -57,6 +57,9 @@ flutter:
     - images/london.jpg
     - images/tokiyo.jpeg
     - images/travel.png
+    - images/tr1.gif
+    - images/tr2.gif
+    - images/tr3.gif
   fonts:
     - family: friday
       fonts:

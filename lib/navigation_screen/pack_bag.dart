@@ -216,6 +216,7 @@ class _clothes extends StatelessWidget
                 ),
               ],
             ),),
+          Image.asset('images/tr3.gif', height: 150, width: 300,),
         ],
       ),
     );
@@ -321,6 +322,7 @@ class _toiletries extends StatelessWidget
                 ),
               ],
             ),),
+          Image.asset('images/tr1.gif', height: 150, width: 300,),
         ],
       ),
     );
@@ -425,6 +427,7 @@ class _misc extends StatelessWidget
                 ),
               ],
             ),),
+          Image.asset('images/tr2.gif', height: 150, width: 300,),
         ],
       ),
     );

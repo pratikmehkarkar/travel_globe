@@ -143,8 +143,9 @@ class TravelGuideState extends State<TravelGuide>
                                     child: Container(
                                       decoration: BoxDecoration(
                                           image: DecorationImage(
-                                            image: NetworkImage(r1), fit: BoxFit.cover, scale: 2.0,
-                                          )),
+                                            image: NetworkImage(r1),fit: BoxFit.cover, scale: 2.0,
+                                          ),
+                                      ),
                                       width: 200.0,
                                       child: Padding(
                                         padding: EdgeInsets.all(12.0),
@@ -1324,7 +1325,10 @@ class _river extends StatelessWidget
                 fontSize: 18.0,
                 fontWeight: FontWeight.w300,
               ),
+              textAlign: TextAlign.justify,
             ),
+            SizedBox(height: 10.0,),
+            Image.asset('images/rr.gif', height: 300, width: 300,),
           ],
         ),
       ),
@@ -1359,14 +1363,16 @@ class _para extends StatelessWidget
             SizedBox(height: 10.0),
             Text("Paragliding belongs to the group of extreme aero-sports which are becoming more popular all over the world because of its attractiveness. "
                 "It originated from alpinism when mountaineers tried to find the easiest and fastest way to get off the mountains.At least once in our lives, we all thought how liberating and fearless would it be to fly freely under the open sky, without any support under our feet."
-                "Anyone who has tried this activity can tell you that there is no better feeling if you are someone who is into adrenaline tours and who is ready to experience life from a different perspective.If you still have a certain amount of fear, the right choice for you is a panoramic tandem flight, which is a flight with an experienced guide during optimal weather conditions. "
-                "Just anyone from 7 to 77 years old can enjoy this adventure.",
+                "Anyone who has tried this activity can tell you that there is no better feeling if you are someone who is into adrenaline tours and who is ready to experience life from a different perspective.If you still have a certain amount of fear, the right choice for you is a panoramic tandem flight, which is a flight with an experienced guide during optimal weather conditions. ",
               style: TextStyle(
                 color: Colors.black,
                 fontSize: 18.0,
                 fontWeight: FontWeight.w300,
               ),
+              textAlign: TextAlign.justify,
             ),
+            SizedBox(height: 10.0,),
+            Image.asset('images/para.gif', height: 150, width: 300,),
           ],
         ),
       ),
@@ -1407,7 +1413,10 @@ class _hiking extends StatelessWidget
                 fontSize: 18.0,
                 fontWeight: FontWeight.w300,
               ),
+              textAlign: TextAlign.justify,
             ),
+            SizedBox(height: 10.0,),
+            Image.asset('images/hike.gif', height: 300, width: 300,),
           ],
         ),
       ),
@@ -1450,7 +1459,10 @@ class _scuba extends StatelessWidget
                 fontSize: 18.0,
                 fontWeight: FontWeight.w300,
               ),
+              textAlign: TextAlign.justify,
             ),
+            SizedBox(height: 10.0,),
+            Image.asset('images/scuba.gif', height: 300, width: 300,),
           ],
         ),
       ),

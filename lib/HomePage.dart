@@ -35,9 +35,9 @@ class HomePage extends StatelessWidget
 
 class NaviHome extends StatefulWidget
 {
-  String stringValue;
+  //String stringValue;
   NaviHomeState createState() => NaviHomeState();
-  NaviHome({this.stringValue});
+  //NaviHome({this.stringValue});
 }
 class NaviHomeState extends State<NaviHome>
 {
@@ -92,7 +92,8 @@ class NaviHomeState extends State<NaviHome>
   @override
   Widget build(BuildContext context)
   {
-    return Scaffold(
+    return WillPopScope(onWillPop: _onBackPressed,
+    child: new Scaffold(
       key: _scaffoldkey,
       backgroundColor: Colors.white,
       //Implementing NavBar Widget for Side Menu
@@ -102,16 +103,16 @@ class NaviHomeState extends State<NaviHome>
         actions: <Widget>[
           PopupMenuButton(
             onSelected: _onSelect,
-              itemBuilder: (context) => <PopupMenuEntry<PageEnum>>[
-                PopupMenuItem<PageEnum>(
-                  value: PageEnum.firstPage,
-                  child: Text("Developer Info"),
-                ),
-                PopupMenuItem<PageEnum>(
-                  value: PageEnum.secondPage,
-                  child: Text("Logout"),
-                ),
-              ],
+            itemBuilder: (context) => <PopupMenuEntry<PageEnum>>[
+              PopupMenuItem<PageEnum>(
+                value: PageEnum.firstPage,
+                child: Text("Developer Info"),
+              ),
+              PopupMenuItem<PageEnum>(
+                value: PageEnum.secondPage,
+                child: Text("Logout"),
+              ),
+            ],
           )
         ],
         elevation: 0.0,
@@ -183,7 +184,28 @@ class NaviHomeState extends State<NaviHome>
           ],
         ),
       ),
-    );
+    ),);
+  }
+  //alertdialog to check exit app
+  Future<bool> _onBackPressed()
+  {
+    return showDialog(context: context,
+    builder: (context) => new AlertDialog(
+      title: new Text('Are you sure?'),
+      content: new Text('Do you want to exit an App'),
+      actions: <Widget>[
+        new GestureDetector(
+          onTap: () => Navigator.of(context).pop(false),
+          child: Text("NO"),
+        ),
+        SizedBox(height: 16),
+        new GestureDetector(
+          onTap: () => Navigator.of(context).pop(true),
+          child: Text("YES"),
+        ),
+      ],
+    ),) ??
+    false;
   }
 }
 
@@ -260,51 +282,4 @@ const MaterialColor primaryBlack = MaterialColor(
   },
 );
 const int _blackPrimaryValue = 0xFF7041EE;
-/*Widget my_simple_menu() {
-  return PopupMenuButton(onSelected: (value)
-  {
-    /*Fluttertoast.showToast(
-        msg: "You have selected " + value.toString(),
-        toastLength: Toast.LENGTH_SHORT,
-        gravity: ToastGravity.BOTTOM,
-        timeInSecForIosWeb: 1,
-        backgroundColor: Colors.black,
-        textColor: Colors.white,
-        fontSize: 16.0
-    );*/
-    /*if (value == 1)
-    {
-      print("1");
-      //Navigator.push(, MaterialPageRoute(builder: (context) => AboutUs()),);
-    }
-    else if (value == 2) {
-      print("2");
-    }
-    else
-      {
-        print("3");
-      }*/
-  },
-    itemBuilder: (BuildContext context)
-    {
-      var list = List<PopupMenuEntry<Object>>();
-      list.add(PopupMenuItem(
-          value: 1,
-          child: Row(
-            children: <Widget>[
-              Text('Developer Info')
-            ],)));
-      list.add(PopupMenuItem(
-          value: 2,
-          child: Row(
-            children: <Widget>[
-              Text('Privacy Policy')
-            ],)));
-      list.add(PopupMenuItem(
-          value: 3,
-          child: Row(
-            children: <Widget>[
-              Text('Logout')
-            ],)));
-      return list;
-    },);}*/
+

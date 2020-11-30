@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage>
     }
     else
     {
-      // if first time then start with sign up page
+      // if first time then start with sign up page / welcome
       prefs.setBool('first_time', false);
       return navigationSplash();
     }

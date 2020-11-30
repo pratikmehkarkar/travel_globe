@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:final_project/main.dart';
 import 'package:final_project/navigation_screen/about_us.dart';
 import 'package:final_project/navigation_screen/advisory.dart';
 import 'package:final_project/navigation_screen/all_destinations.dart';
@@ -52,7 +53,7 @@ class NaviHomeState extends State<NaviHome>
   removeValues() async
   {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('first_time', true);
+    prefs.remove('first_time');
     prefs.remove('stringvalue');
   }
   /*getStringValuesSF() async
@@ -72,7 +73,7 @@ class NaviHomeState extends State<NaviHome>
       case PageEnum.secondPage:
         removeValues();
         Navigator.pop(context);
-        Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
         //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => SecondPage()));
         break;
       default:
@@ -87,7 +88,6 @@ class NaviHomeState extends State<NaviHome>
     super.initState();
     //getStringValuesSF();
   }
-
   final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context)

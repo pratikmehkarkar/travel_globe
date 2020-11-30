@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-Widget cardShape(String image, String titile, String location)
+Widget cardShape(String image, String title, String location)
 {
   //Hero refers to the widget that flies between screens of our application
   return Hero(
@@ -24,7 +24,7 @@ Widget cardShape(String image, String titile, String location)
               mainAxisAlignment: MainAxisAlignment.end,
               crossAxisAlignment: CrossAxisAlignment.end,
               children: [
-                Text(titile,style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.w800),),
+                Text(title,style: TextStyle(color: Colors.white, fontSize: 30.0, fontWeight: FontWeight.w800),),
                 Text(location,
                   style: TextStyle(color: Colors.white,fontSize: 30.0,fontWeight: FontWeight.w800),),
               ],

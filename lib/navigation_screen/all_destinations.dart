@@ -12,6 +12,8 @@ class _AllDestinationsState extends State<AllDestinations>
   String url_india = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/india.png?alt=media&token=0754dccf-d998-4e06-93aa-c21328fea41b";
   String url_uk = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/uk.png?alt=media&token=0ff0361d-bac5-41bb-bee4-115e8b322023";
   String url_france = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/france.png?alt=media&token=c3fe0784-d53b-4505-8ab4-6b4b893b1245";
+  String url_russia = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/russia-min.jpg?alt=media&token=e0dc572a-0dec-4bc5-b9a7-b82007b34e07";
+  String url_japan = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/japan-min.png?alt=media&token=9cb9baf5-e954-4442-9aa5-34ba63df9de8";
 
   @override
   Widget build(BuildContext context)
@@ -318,7 +320,7 @@ class _AllDestinationsState extends State<AllDestinations>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         MeetNetworkImage(
-                          imageUrl: url_usa,
+                          imageUrl: url_russia,
                           height: 100,
                           width: 100,
                           fit: BoxFit.cover,
@@ -386,7 +388,7 @@ class _AllDestinationsState extends State<AllDestinations>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         MeetNetworkImage(
-                          imageUrl: url_usa,
+                          imageUrl: url_japan,
                           height: 100,
                           width: 100,
                           fit: BoxFit.cover,

@@ -73,13 +73,14 @@ class _AllDestinationsState extends State<AllDestinations>
                           return new Container(
                             child: Scrollbar(
                               child: ListView(
-                                padding: const EdgeInsets.symmetric(vertical: 8),
+                                padding: const EdgeInsets.symmetric(vertical: 15),
                                 children: [
                                   ListTile(
                                     leading: ExcludeSemantics(
                                       child: CircleAvatar(child: Text("NY")),),
                                     title: Text("New York"),
-                                    subtitle: Text("Statue of Liberty, Empire State Building & Times Square"),),
+                                    subtitle: Text("Statue of Liberty, Empire State Building & Times Square"),
+                                  ),
                                   ListTile(
                                     leading: ExcludeSemantics(
                                       child: CircleAvatar(child: Text("SF")),),
@@ -95,8 +96,42 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("W")),),
                                     title: Text("Washington, D.C"),
                                     subtitle: Text("U.S Capital, home to federal gov.& cultural institutions"),),
-
-
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("LA")),),
+                                    title: Text("Los Angeles"),
+                                    subtitle: Text("Venice Beach, Griffith Observatory, Disneyland, and Hollywood Stars"),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'The American Flag Has Had 27 Versions\nDrives on the right side of the road.\nUses the imperial system\nThe US Has The 4th Longest River System In The World\nThe US doesn’t Have An Official Language\nThere Is More Bourbon Than People In Kentucky',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
+                                      Text('Fun facts about the USA!  ',
+                                        style: TextStyle(
+                                          color: Colors.black,
+                                          fontSize: 18.0),
+                                      ),
+                                      //Icon(
+                                        //Icons.arrow_forward,
+                                        //color: Colors.black,
+                                        //size: 18.0,
+                                     // ),
+                                    ],
+                                  ),
                                 ],
                               ),),
                           );
@@ -163,7 +198,38 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("J")),),
                                     title: Text("Jaipur"),
                                     subtitle: Text("Pink City, Jeep safari through Nahargarh Sanctuary, Hawa Mahal, Amer Fort and Nahargarh Fort"),),
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("BG")),),
+                                    title: Text("Bengaluru"),
+                                    subtitle: Text("Lal Bagh Gardens, Bannerghatta National Park, Vidhana Souta Palace, and Dodda Ganapathi Temple"),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'India is the wettest inhabited place on Earth\nChenab Bridge is the highest rail bridge in the world\nThe popular game “Snakes and Ladders” originated in India\nIndia has 22 recognized languages\nRanked the second-most populous country in the world\nThe world’s largest sundial is located in India',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
 
+                                      Text('Fun facts about India!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0),
+                                      ),
+                                      ],
+                                  ),
 
                                 ],
                               ),),
@@ -231,7 +297,38 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("LP")),),
                                     title: Text("Liverpool"),
                                     subtitle: Text("Home of the beatles, Two major soccer teams, and Wood Street"),),
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("BR")),),
+                                    title: Text("Bristol"),
+                                    subtitle: Text("Old City, St Nicholas Market, and historic Old Vic, arguably one of the best-known theaters"),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'The first postage stamp was created in the U.K.\nGolf was invented in Scotland\nQueen Elizabeth is the longest-reigning Queen in the world\nThere is no official religion in the U.K.\nThere no active volcanoes in the U.K.\nNo mountains in England are higher than a thousand meters.\nLondon has over 170 museums\nThe U.K. has not a written constitution',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
 
+                                      Text('Fun facts about the UK!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0),
+                                      ),
+                                      ],
+                                  ),
 
                                 ],
                               ),),
@@ -299,7 +396,38 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("LY")),),
                                     title: Text("Lyon"),
                                     subtitle: Text("Rhone River, Saone Rivers, Lyon Cathedral, and Vieux Lyon Traboules"),),
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("AN")),),
+                                    title: Text("Annecy"),
+                                    subtitle: Text("North of the Alps, Lake Annecy, and Venice of Savoie"),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'French was once the official language of England\nLiberte, Egalite, Fraternite is the national motto\nUses the metric system\nThe French coastline adds up to 3427km\nThe Louvre in Paris is the most visited art museum in the world\nIt is illegal to throw out food in France\nFrance is the largest country in the EU\nFrance is the most popular tourist destination in the world',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
 
+                                      Text('Fun facts about France!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0),
+                                      ),
+                                      ],
+                                  ),
 
                                 ],
                               ),),
@@ -367,7 +495,38 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("VL")),),
                                     title: Text("Vladivostok"),
                                     subtitle: Text("Mountains and bays surround Vladivostok, also Minny Gorodok and Admiralsky Skver"),),
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("SC")),),
+                                    title: Text("Sochi"),
+                                    subtitle: Text("Home of the 2014 Winter Olympics, Caucasus Biosphere Reserve, and great beaches."),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'The longest railway in the world is in Russia\nThe coldest inhabited town on Earth is in Russia\nTetris came from Russia\nThe bloodiest siege in history was fought in Russia\nThe biggest fortress in the world is in Russia\nRussia is home to the deepest lake in the world',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
 
+                                      Text('Fun facts about Russia!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0),
+                                      ),
+                                      ],
+                                  ),
 
                                 ],
                               ),),
@@ -435,7 +594,38 @@ class _AllDestinationsState extends State<AllDestinations>
                                       child: CircleAvatar(child: Text("NR")),),
                                     title: Text("Nara"),
                                     subtitle: Text("Considered to be the birthplace of Japanese civilization, also has Great Buddha statue in the Todai-ji temple"),),
+                                  ListTile(
+                                    leading: ExcludeSemantics(
+                                      child: CircleAvatar(child: Text("SP")),),
+                                    title: Text("Sapporo"),
+                                    subtitle: Text("The capital city of the island of Hokkaido, with great mountains and hot springs, and a Snow Festival. "),),
+                                  Row(
+                                    mainAxisAlignment: MainAxisAlignment.center, //Center Row contents horizontally,
+                                    crossAxisAlignment: CrossAxisAlignment.center, //Center Row contents vertically,
+                                    children: [
+                                      Tooltip(
+                                        child: IconButton(icon: Icon(Icons.info,color: Colors.black,),
+                                            onPressed: (){ }),
+                                        message: 'Japan is Largely Made Up of 4 Main Islands\nJapan has the World’s Second-Highest Life Expectancy\n69% of Japan is Covered in Forest\nJapan has the World’s Deepest Underwater Postbox\nJapan has a Highway that Goes Through a Building\nThe 7th Longest Coastline in the World',
+                                        padding: EdgeInsets.all(20),
+                                        margin: EdgeInsets.all(20),
+                                        showDuration: Duration(seconds: 60),
+                                        decoration: BoxDecoration(
+                                          color: Colors.black,
+                                          borderRadius: const BorderRadius.all(Radius.circular(4)),
+                                        ),
+                                        textStyle: TextStyle(color: Colors.white),
+                                        preferBelow: true,
+                                        verticalOffset: 200,
+                                      ),
 
+                                      Text('Fun facts about Japan!',
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 18.0),
+                                      ),
+                                      ],
+                                  ),
 
                                 ],
                               ),),

@@ -57,6 +57,7 @@ class _AllDestinationsState extends State<AllDestinations>
                             child: Text('No Internet Connection !'),
                           ),
                         ),
+                        //Tooltip(message: 'Click here to see all destinations'),
                         //SizedBox(height: 3.0,),
                         Text("USA", style: TextStyle(fontWeight: FontWeight.w400),),
                       ],

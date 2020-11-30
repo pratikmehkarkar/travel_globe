@@ -1,4 +1,5 @@
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:final_project/main.dart';
 import 'package:final_project/navigation_screen/about_us.dart';
 import 'package:final_project/navigation_screen/advisory.dart';
 import 'package:final_project/navigation_screen/all_destinations.dart';
@@ -6,14 +7,16 @@ import 'package:final_project/navigation_screen/pack_bag.dart';
 import 'package:final_project/navigation_screen/travel_guide.dart';
 import 'package:final_project/ui_components/DetailsPage.dart';
 import 'package:final_project/ui_components/card_view.dart';
+import 'package:final_project/welcome_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-
+enum PageEnum {
+  firstPage,
+  secondPage,
+}
 const List<String> context_menu_choice = <String>[
-  "Item 1",
-  "Item 2",
-  "Item 3"
-];
+  "Item 1", "Item 2", "Item 3"];
 
 class HomePage extends StatelessWidget
 {
@@ -33,10 +36,13 @@ class HomePage extends StatelessWidget
 
 class NaviHome extends StatefulWidget
 {
+  //String stringValue;
   NaviHomeState createState() => NaviHomeState();
+  //NaviHome({this.stringValue});
 }
 class NaviHomeState extends State<NaviHome>
 {
+
   List<String> imagelist = [
     "images/nyc.jpg",
     "images/sin.jpg",
@@ -44,18 +50,71 @@ class NaviHomeState extends State<NaviHome>
     "images/london.jpg",
     "images/tokiyo.jpeg"
   ];
-
+  removeValues() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.remove('first_time');
+    prefs.remove('stringvalue');
+  }
+  /*getStringValuesSF() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Return String
+    stringValue = prefs.getString('stringvalue');
+    print(stringValue);
+    //return stringValue;
+  }*/
+  _onSelect(PageEnum value) {
+    switch (value) {
+      case PageEnum.firstPage:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => FirstPage()));
+        break;
+      case PageEnum.secondPage:
+        removeValues();
+        Navigator.pop(context);
+        Navigator.push(context, MaterialPageRoute(builder: (context) => MyApp()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => SecondPage()));
+        break;
+      default:
+        Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
+        //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => SecondPage()));
+        break;
+    }
+  }
+  @override
+  void initState()
+  {
+    super.initState();
+    //getStringValuesSF();
+  }
   final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context)
   {
-    return Scaffold(
+    return WillPopScope(onWillPop: _onBackPressed,
+    child: new Scaffold(
       key: _scaffoldkey,
       backgroundColor: Colors.white,
       //Implementing NavBar Widget for Side Menu
       drawer: NavigationDrawer(),
       appBar: AppBar(
         //title: Text('Flutter Guide'),
+        actions: <Widget>[
+          PopupMenuButton(
+            onSelected: _onSelect,
+            itemBuilder: (context) => <PopupMenuEntry<PageEnum>>[
+              PopupMenuItem<PageEnum>(
+                value: PageEnum.firstPage,
+                child: Text("Developer Info"),
+              ),
+              PopupMenuItem<PageEnum>(
+                value: PageEnum.secondPage,
+                child: Text("Logout"),
+              ),
+            ],
+          )
+        ],
         elevation: 0.0,
         backgroundColor: Colors.white,
         iconTheme: new IconThemeData(color: Colors.black),
@@ -67,6 +126,7 @@ class NaviHomeState extends State<NaviHome>
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
+            //getStringValuesSF(),
             Text("A Destination For The New Millennium", style:
             TextStyle(fontSize: 28.0, fontWeight: FontWeight.w800),),
             SizedBox(height: 5.0,),
@@ -124,9 +184,31 @@ class NaviHomeState extends State<NaviHome>
           ],
         ),
       ),
-    );
+    ),);
+  }
+  //alertdialog to check exit app
+  Future<bool> _onBackPressed()
+  {
+    return showDialog(context: context,
+    builder: (context) => new AlertDialog(
+      title: new Text('Are you sure?'),
+      content: new Text('Do you want to exit an App'),
+      actions: <Widget>[
+        new GestureDetector(
+          onTap: () => Navigator.of(context).pop(false),
+          child: Text("NO"),
+        ),
+        SizedBox(height: 16),
+        new GestureDetector(
+          onTap: () => Navigator.of(context).pop(true),
+          child: Text("YES"),
+        ),
+      ],
+    ),) ??
+    false;
   }
 }
+
 //navigation drawer class
 class NavigationDrawer extends StatelessWidget
 {
@@ -200,3 +282,4 @@ const MaterialColor primaryBlack = MaterialColor(
   },
 );
 const int _blackPrimaryValue = 0xFF7041EE;
+

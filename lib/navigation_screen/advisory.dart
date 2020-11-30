@@ -79,7 +79,7 @@ class Dashboard extends StatelessWidget {
                   leading: Icon(Icons.local_pharmacy, color: Colors.red,),
                   title: Text('COVID-19 Travel Advisory', style: TextStyle(fontWeight: FontWeight.w400),),
                   subtitle: const Text('Recommendations for international/domestic traffic. Temperature screening alone, at exit or entry, is not an effective way to stop international spread, since infected individuals may be in incubation period, '
-                      'may not express apparent symptoms early on in the course of the disease'),),
+                      'may not express apparent symptoms early on in the course of the disease',textAlign: TextAlign.justify,),),
                 ButtonBar(
                   children: <Widget>[
                     Tooltip(message: "Click here to view guidelines by WHO",

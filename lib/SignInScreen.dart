@@ -1,7 +1,9 @@
-import 'package:final_project/SplashScreen.dart';
+import 'package:final_project/main.dart';
 import 'package:final_project/ui_components/my_button.dart';
+import 'package:final_project/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'list.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 
@@ -12,7 +14,11 @@ class SignInScreen extends StatefulWidget {
 
 class _SignInScreenState extends State<SignInScreen>
 {
-
+  addValues() async
+  {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('first_time', false);
+  }
   @override
   void initState() {
     super.initState();
@@ -24,9 +30,24 @@ class _SignInScreenState extends State<SignInScreen>
   final _scaffoldKey = GlobalKey<ScaffoldState>();
   TextEditingController _emailController = TextEditingController();
   TextEditingController _passwordController = TextEditingController();
+  //final GlobalKey<ScaffoldState> _scaffoldkey = new GlobalKey<ScaffoldState>();
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(
+        child: new Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Color(0xFFFAFBFD),
+        iconTheme: new IconThemeData(color: Colors.black),
+        leading: new IconButton(
+        icon: new Icon(Icons.arrow_back),
+        onPressed: ()
+        {
+          Navigator.pop(context);
+          Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+          //Navigator.pop(context);
+        },
+      ),),
       key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFAFBFD),
@@ -36,7 +57,7 @@ class _SignInScreenState extends State<SignInScreen>
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(60.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 5.0, bottom: 20.0),
                 child: Center(
                   child: Text(
                     'Sign in',
@@ -62,7 +83,7 @@ class _SignInScreenState extends State<SignInScreen>
                 child: TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(
-                      labelText: "Password",
+                    labelText: "Password",
                   ),
                   style: TextStyle(color: Colors.black),
                 ),
@@ -91,7 +112,8 @@ class _SignInScreenState extends State<SignInScreen>
                         Navigator.of(context).pushReplacement(PageRouteBuilder(
                             pageBuilder: (context, animation, anotherAnimation)
                             {
-                              return SplashScreen();
+                              addValues();
+                              return MyApp();
                             },
                             transitionDuration: Duration(milliseconds: 2000),
                             transitionsBuilder: (context, animation, anotherAnimation, child)
@@ -133,6 +155,12 @@ class _SignInScreenState extends State<SignInScreen>
           ),
         ],
       ),
-    );
+    ),
+        onWillPop: _onBackPressed);
+  }
+  Future<bool> _onBackPressed()
+  {
+    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 }

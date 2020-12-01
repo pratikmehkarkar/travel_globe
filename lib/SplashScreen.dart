@@ -79,7 +79,12 @@ class SplashScreenState extends State<SplashScreen>
                 Expanded(
                   child: Column(
                     children: <Widget>[
-                      ColoredLinearProgressIndicator(),
+                      Container(
+                        padding: EdgeInsets.all(10.0),
+                          child: ColoredLinearProgressIndicator(
+                            backgroundColor: Colors.white,
+                          ),
+                      ),
                       Container(
                         height: 15,
                       ),

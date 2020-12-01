@@ -1,6 +1,7 @@
 import 'package:final_project/HomePage.dart';
 import 'package:final_project/list.dart';
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 
 class PackBag extends StatelessWidget
@@ -49,6 +50,15 @@ class PackBag extends StatelessWidget
                           Navigator.of(context).push(PageRouteBuilder(
                               pageBuilder: (context, animation, anotherAnimation)
                               {
+                                Fluttertoast.showToast(
+                                    msg: "You can select the items which you have already packed up.",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.black,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0
+                                );
                                 return _clothes();
                               },
                               transitionDuration: Duration(milliseconds: 2000),
@@ -73,6 +83,15 @@ class PackBag extends StatelessWidget
                           Navigator.of(context).push(PageRouteBuilder(
                               pageBuilder: (context, animation, anotherAnimation)
                               {
+                                Fluttertoast.showToast(
+                                    msg: "You can select the items which you have already packed up.",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.black,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0
+                                );
                                 return _toiletries();
                               },
                               transitionDuration: Duration(milliseconds: 2000),
@@ -96,6 +115,15 @@ class PackBag extends StatelessWidget
                           Navigator.of(context).push(PageRouteBuilder(
                               pageBuilder: (context, animation, anotherAnimation)
                               {
+                                Fluttertoast.showToast(
+                                    msg: "You can select the items which you have already packed up.",
+                                    toastLength: Toast.LENGTH_LONG,
+                                    gravity: ToastGravity.CENTER,
+                                    timeInSecForIosWeb: 1,
+                                    backgroundColor: Colors.black,
+                                    textColor: Colors.white,
+                                    fontSize: 16.0
+                                );
                                 return _misc();
                               },
                               transitionDuration: Duration(milliseconds: 2000),

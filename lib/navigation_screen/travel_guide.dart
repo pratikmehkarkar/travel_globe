@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 import '../list.dart';
 
@@ -31,6 +32,20 @@ class TravelGuideState extends State<TravelGuide>
   String c3 = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/cruise%2Fbahamas-min.jpg?alt=media&token=e1fc6c22-cb0a-42de-8762-55c166e925c5";
   String c4 = "https://firebasestorage.googleapis.com/v0/b/sathfcm.appspot.com/o/cruise%2Fnew-min.jpg?alt=media&token=586544b6-3aca-4d25-9b5d-6fdadfa98f76";
 
+  @override
+  void initState()
+  {
+    super.initState();
+    Fluttertoast.showToast(
+        msg: "Please wait while images are loading from server..",
+        toastLength: Toast.LENGTH_LONG,
+        gravity: ToastGravity.BOTTOM,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.black,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+  }
   @override
   Widget build(BuildContext context)
   {
@@ -122,7 +137,8 @@ class TravelGuideState extends State<TravelGuide>
                                   ),
                                   elevation: 0.0,
                                   child: InkWell(
-                                    onTap: () {
+                                    onTap: ()
+                                    {
                                       Navigator.of(context).push(PageRouteBuilder(
                                           pageBuilder: (context, animation, anotherAnimation)
                                           {

@@ -40,7 +40,7 @@ class _MyHomePageState extends State<MyHomePage>
     else
     {
       // if first time then start with sign up page / welcome
-      prefs.setBool('first_time', false);
+      //prefs.setBool('first_time', false);
       return navigationSplash();
     }
   }
@@ -65,7 +65,7 @@ class _MyHomePageState extends State<MyHomePage>
   Widget build(BuildContext context)
   {
     return Scaffold(
-      body: Text("Hello"),
+      body: Text(""),
     );
   }
 }

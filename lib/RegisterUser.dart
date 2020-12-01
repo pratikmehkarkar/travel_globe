@@ -1,5 +1,6 @@
 import 'package:final_project/SignInScreen.dart';
 import 'package:final_project/ui_components/my_button.dart';
+import 'package:final_project/welcome_screen.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'list.dart';
@@ -13,7 +14,6 @@ class RegisterUser extends StatefulWidget {
 }
 class _RegisterUserState extends State<RegisterUser>
 {
-  bool _obscureText = true;
   @override
   void initState() {
     super.initState();
@@ -32,7 +32,20 @@ class _RegisterUserState extends State<RegisterUser>
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    return WillPopScope(child: new Scaffold(
+      appBar: AppBar(
+        elevation: 0.0,
+        backgroundColor: Color(0xFFFAFBFD),
+        iconTheme: new IconThemeData(color: Colors.black),
+        leading: new IconButton(
+          icon: new Icon(Icons.arrow_back),
+          onPressed: ()
+          {
+            Navigator.pop(context);
+            Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
+            //Navigator.pop(context);
+          },
+        ),),
       key: _scaffoldKey,
       resizeToAvoidBottomInset: false,
       backgroundColor: Color(0xFFFAFBFD),
@@ -42,7 +55,7 @@ class _RegisterUserState extends State<RegisterUser>
           Column(
             children: [
               Padding(
-                padding: EdgeInsets.all(60.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 5.0, bottom: 10.0),
                 child: Center(
                   child: Text(
                     'SignUp',
@@ -54,7 +67,7 @@ class _RegisterUserState extends State<RegisterUser>
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 5.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 1.0),
                 child: TextFormField(
                   controller: _usernameController,
                   decoration: InputDecoration(
@@ -64,7 +77,7 @@ class _RegisterUserState extends State<RegisterUser>
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 15.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 13.0),
                 child: TextFormField(
                   controller: _emailController,
                   decoration: InputDecoration(
@@ -74,7 +87,7 @@ class _RegisterUserState extends State<RegisterUser>
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 15.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 13.0),
                 child: TextFormField(
                   controller: _passwordController,
                   decoration: InputDecoration(
@@ -84,7 +97,7 @@ class _RegisterUserState extends State<RegisterUser>
                 ),
               ),
               Padding(
-                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 15.0),
+                padding: EdgeInsets.only(left: 35.0, right: 35.0, top: 13.0),
                 child: TextFormField(
                   controller: _repasswordController,
                   decoration: InputDecoration(
@@ -164,6 +177,12 @@ class _RegisterUserState extends State<RegisterUser>
           ),
         ],
       ),
-    );
+    ),
+        onWillPop: _onBackPressed);
+  }
+  Future<bool> _onBackPressed()
+  {
+    Navigator.pop(context);
+    Navigator.push(context, MaterialPageRoute(builder: (context) => WelcomeScreen()));
   }
 }

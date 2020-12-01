@@ -7,7 +7,6 @@ import 'package:final_project/navigation_screen/pack_bag.dart';
 import 'package:final_project/navigation_screen/travel_guide.dart';
 import 'package:final_project/ui_components/DetailsPage.dart';
 import 'package:final_project/ui_components/card_view.dart';
-import 'package:final_project/welcome_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -67,6 +66,7 @@ class NaviHomeState extends State<NaviHome>
   _onSelect(PageEnum value) {
     switch (value) {
       case PageEnum.firstPage:
+
         Navigator.push(context, MaterialPageRoute(builder: (context) => AboutUs()));
         //Navigator.of(context).push(CupertinoPageRoute(builder: (BuildContext context) => FirstPage()));
         break;

@@ -19,4 +19,9 @@ Flutter Dependencies -
 - Cached Network Image
 - Flutter Toast Message
 
+Sample UI Design:
+
+<img src="https://github.com/pratikmehkarkar/travel_globe/blob/master/images/ss_1.png" data-canonical-src="https://github.com/pratikmehkarkar/travel_globe/blob/master/images/ss_1.png" width="700" height="400" />
+
+<img src="https://github.com/pratikmehkarkar/travel_globe/blob/master/images/ss_2.png" data-canonical-src="https://github.com/pratikmehkarkar/travel_globe/blob/master/images/ss_1.png" width="700" height="400" />
 

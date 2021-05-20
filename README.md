@@ -6,6 +6,7 @@ Accomplishments -
 - Travel guide for various locations around the world
 - Discover new locations and activities
 - Prepare yourself for a trip without worry
+- Travel guide available in Spanish Language
 
 Flutter Dependencies -
 - Flutter Colored Progress Indicators
